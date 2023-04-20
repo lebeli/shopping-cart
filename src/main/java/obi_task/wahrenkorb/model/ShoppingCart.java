@@ -25,8 +25,13 @@ public class ShoppingCart {
                 .findFirst()
                 .orElse(null);
         if (updateItem == null) {
+            if (item.getQuantity() < item.getProduct().getMinQuantity()) {
+                item.setQuantity(item.getProduct().getMinQuantity());
+            }
             items.add(item);
+
         } else {
+            // quantity constraint on product fulfilled, if item already in shopping cart
             updateItem.setQuantity(updateItem.getQuantity() + item.getQuantity());
         }
         cartPrice += item.getProduct().getPrice() * item.getQuantity();
