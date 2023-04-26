@@ -12,4 +12,8 @@ public class Customer {
     @OneToOne
     @JoinColumn(name = "shoppingcart_id")  // Customer parent of ShoppingCart
     private ShoppingCart shoppingCart;
+
+    public Customer() {
+        this.shoppingCart = new ShoppingCart();
+    }
 }

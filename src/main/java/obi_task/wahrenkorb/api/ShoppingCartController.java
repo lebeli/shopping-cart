@@ -2,7 +2,6 @@ package obi_task.wahrenkorb.api;
 
 import obi_task.wahrenkorb.model.ShoppingCart;
 import obi_task.wahrenkorb.service.CustomerService;
-import obi_task.wahrenkorb.service.ShoppingCartService;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -15,8 +14,18 @@ public class ShoppingCartController implements ShoppingCartApi {
     }
 
     @Override
-    public void addItemToCustomerShoppingCart(Long customerId, Long itemId, int quantity) {
-        customerService.addItemToShoppingCart(customerId, itemId, quantity);
+    public void addItemToCustomerShoppingCart(Long customerId, Long productId, Integer quantity) {
+        customerService.addItemToShoppingCart(customerId, productId, quantity);
+    }
+
+    @Override
+    public void removeItemFromCustomerShoppingCart(Long customerId, Long productId) {
+        customerService.removeItemFromShoppingCart(customerId, productId);
+    }
+
+    @Override
+    public void clearCustomerShoppingCart(Long customerId) {
+        customerService.clearShoppingCart(customerId);
     }
 
     @Override

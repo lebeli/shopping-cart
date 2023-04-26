@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -20,6 +19,7 @@ public class ShoppingCart {
     private float cartPrice;
 
     public void addItem(Item item) {
+        // Manage through hashcode() and equals() in entities
         Item updateItem = items.stream()
                 .filter(cartItem -> cartItem.getProduct().equals(item.getProduct()))
                 .findFirst()
@@ -37,7 +37,11 @@ public class ShoppingCart {
         cartPrice += item.getProduct().getPrice() * item.getQuantity();
     }
 
-    public void removeItem(Item item) {
-        items.remove(item);
+    public void removeItem(Product product) {
+        items.remove(new Item(product));
+    }
+
+    public void clear() {
+        items = new HashSet<>();
     }
 }

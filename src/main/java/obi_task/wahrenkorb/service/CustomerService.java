@@ -32,16 +32,24 @@ public class CustomerService {
         return customer.getShoppingCart();
     }
 
-    public void addItemToShoppingCart(Long customerId, Long itemId, int quantity) {
-        Customer customer = customerRepository.findById(customerId).orElse(null);
-        Product product = productRepository.findById(itemId).orElse(null);
-        if (customer == null) {
-            throw new CustomerNotFoundException();
-        } else if (product == null) {
-            throw new ProductNotFoundException();
-        }
+    public void addItemToShoppingCart(Long customerId, Long productId, int quantity) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new CustomerNotFoundException());
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException());
         Item item = new Item(product, quantity);
         customer.getShoppingCart().addItem(item);
+        customerRepository.save(customer);
+    }
+
+    public void removeItemFromShoppingCart(Long customerId, Long productId) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new CustomerNotFoundException());
+        Product product = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException());
+        customer.getShoppingCart().removeItem(product);
+        customerRepository.save(customer);
+    }
+
+    public void clearShoppingCart(Long customerId) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(() -> new CustomerNotFoundException());
+        customer.getShoppingCart().clear();
         customerRepository.save(customer);
     }
 }

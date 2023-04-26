@@ -21,4 +21,22 @@ public class Product {
     private int stock;
     private int minQuantity;
 
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hashCode(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof Product) {
+            if (((Product) obj).getId().equals(this.getId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
