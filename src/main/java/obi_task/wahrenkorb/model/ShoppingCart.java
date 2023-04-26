@@ -1,5 +1,6 @@
 package obi_task.wahrenkorb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne(mappedBy = "shoppingCart")  // Customer parent of ShoppingCart
+    @JsonIgnore
     private Customer customer;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Item> items = new HashSet<>();

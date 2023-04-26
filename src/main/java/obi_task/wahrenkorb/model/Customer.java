@@ -9,7 +9,11 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+
+    private String name;
+    private String surname;
+
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "shoppingcart_id")  // Customer parent of ShoppingCart
     private ShoppingCart shoppingCart;
 

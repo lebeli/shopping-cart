@@ -1,16 +1,27 @@
 package obi_task.wahrenkorb.api;
 
+import obi_task.wahrenkorb.model.Customer;
 import obi_task.wahrenkorb.model.ShoppingCart;
 import obi_task.wahrenkorb.service.CustomerService;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class ShoppingCartController implements ShoppingCartApi {
 
     CustomerService customerService;
 
     public ShoppingCartController(CustomerService customerService) {
         this.customerService = customerService;
+    }
+
+    @Override
+    public Customer getCustomer(Long customerId) {
+        return customerService.getCustomerById(customerId);
+    }
+
+    @Override
+    public void addCustomer(Customer customer) {
+        this.customerService.addCustomer(customer);
     }
 
     @Override
