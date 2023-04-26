@@ -1,4 +1,4 @@
-package obi_task.wahrenkorb.exception;
+package obi_task.warenkorb.exception;
 
 public class ProductNotFoundException extends RuntimeException{
 }

@@ -1,8 +1,8 @@
-package obi_task.wahrenkorb.api;
+package obi_task.warenkorb.api;
 
-import obi_task.wahrenkorb.model.Customer;
-import obi_task.wahrenkorb.model.ShoppingCart;
-import obi_task.wahrenkorb.service.CustomerService;
+import obi_task.warenkorb.model.Customer;
+import obi_task.warenkorb.model.ShoppingCart;
+import obi_task.warenkorb.service.CustomerService;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

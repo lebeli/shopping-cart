@@ -1,10 +1,10 @@
-package obi_task.wahrenkorb;
+package obi_task.warenkorb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WahrenkorbApplicationTests {
+class WarenkorbApplicationTests {
 
     // TODO: Unit and Integration Testing (not included in solution)
 

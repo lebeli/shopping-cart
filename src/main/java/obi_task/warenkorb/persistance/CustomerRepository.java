@@ -1,6 +1,6 @@
-package obi_task.wahrenkorb.persistance;
+package obi_task.warenkorb.persistance;
 
-import obi_task.wahrenkorb.model.Customer;
+import obi_task.warenkorb.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

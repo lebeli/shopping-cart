@@ -1,4 +1,4 @@
-package obi_task.wahrenkorb.model;
+package obi_task.warenkorb.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

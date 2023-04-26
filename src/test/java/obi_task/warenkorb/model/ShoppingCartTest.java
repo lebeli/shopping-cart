@@ -1,10 +1,8 @@
-package obi_task.wahrenkorb.model;
+package obi_task.warenkorb.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.HashSet;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,4 +1,4 @@
-package obi_task.wahrenkorb.model;
+package obi_task.warenkorb.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -37,9 +37,7 @@ public class Item {
             return true;
         }
         if (obj instanceof Item) {
-            if (((Item) obj).getProduct().equals(getProduct())) {
-                return true;
-            }
+            return ((Item) obj).getProduct().equals(getProduct());
         }
         return false;
     }

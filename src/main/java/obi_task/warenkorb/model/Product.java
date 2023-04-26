@@ -1,4 +1,4 @@
-package obi_task.wahrenkorb.model;
+package obi_task.warenkorb.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,9 +39,7 @@ public class Product {
             return true;
         }
         if (obj instanceof Product) {
-            if (((Product) obj).getId().equals(this.getId())) {
-                return true;
-            }
+            return ((Product) obj).getId().equals(this.getId());
         }
         return false;
     }

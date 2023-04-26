@@ -1,13 +1,13 @@
-package obi_task.wahrenkorb;
+package obi_task.warenkorb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WahrenkorbApplication {
+public class WarenkorbApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WahrenkorbApplication.class, args);
+        SpringApplication.run(WarenkorbApplication.class, args);
     }
 
 }

@@ -1,8 +1,8 @@
-package obi_task.wahrenkorb.service;
+package obi_task.warenkorb.service;
 
-import obi_task.wahrenkorb.exception.ShoppingCartNotFoundException;
-import obi_task.wahrenkorb.model.ShoppingCart;
-import obi_task.wahrenkorb.persistance.ShoppingCartRepository;
+import obi_task.warenkorb.exception.ShoppingCartNotFoundException;
+import obi_task.warenkorb.model.ShoppingCart;
+import obi_task.warenkorb.persistance.ShoppingCartRepository;
 import org.springframework.stereotype.Service;
 
 @Service
