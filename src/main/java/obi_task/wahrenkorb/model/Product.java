@@ -16,10 +16,17 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int name;
+    private String name;
     private float price;
     private int stock;
     private int minQuantity;
+
+    public Product(String name, float price, int stock, int minQuantity) {
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.minQuantity = minQuantity;
+    }
 
     @Override
     public int hashCode() {

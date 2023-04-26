@@ -1,6 +1,5 @@
 package obi_task.wahrenkorb.model;
 
-import io.swagger.models.auth.In;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -22,6 +22,7 @@ public class ShoppingCartController implements ShoppingCartApi {
     @Override
     public void addCustomer(Customer customer) {
         this.customerService.addCustomer(customer);
+        // Return Statuscode 200 via ResponseEntity
     }
 
     @Override

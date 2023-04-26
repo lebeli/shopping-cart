@@ -2,7 +2,9 @@ package obi_task.wahrenkorb.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,11 +19,17 @@ public class ShoppingCart {
     @JsonIgnore
     private Customer customer;
     @OneToMany(cascade = CascadeType.ALL)
+    @Setter(AccessLevel.NONE)
     private Set<Item> items = new HashSet<>();
     private float cartPrice;
 
+    public ShoppingCart() {}
+
     public void addItem(Item item) {
         // Manage through hashcode() and equals() in entities
+        if (item.getQuantity() > item.getProduct().getStock()) {
+            return;
+        }
         Item updateItem = items.stream()
                 .filter(cartItem -> cartItem.getProduct().equals(item.getProduct()))
                 .findFirst()
@@ -45,5 +53,12 @@ public class ShoppingCart {
 
     public void clear() {
         items = new HashSet<>();
+    }
+
+    public Item getItemForProduct(Product product) {
+        return items.stream()
+                    .filter(cartItem -> cartItem.getProduct().equals(product))
+                    .findFirst()
+                    .orElse(null);
     }
 }
