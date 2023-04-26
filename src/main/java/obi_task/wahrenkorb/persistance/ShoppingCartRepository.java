@@ -9,4 +9,6 @@ import java.util.Optional;
 //@Repository
 public interface ShoppingCartRepository extends CrudRepository<ShoppingCart, Long> {
     Optional<ShoppingCart> findById(Long id);
+    ShoppingCart save(ShoppingCart shoppingCart);
+
 }

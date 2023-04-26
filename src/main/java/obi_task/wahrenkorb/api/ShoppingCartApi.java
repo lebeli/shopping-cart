@@ -4,12 +4,13 @@ import obi_task.wahrenkorb.model.ShoppingCart;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 public interface ShoppingCartApi {
 
-    @PostMapping
-    void addItem(Long itemId, int quantity);
+    @PostMapping("customer/{customerId}/shoppingcart/add")
+    void addItemToCustomerShoppingCart(@PathVariable Long customerId, @RequestBody Long itemId, int quantity);
 
-    @GetMapping("/shoppingcart/{shoppingCartId}")
-    ShoppingCart getCustomerShoppingCart(@PathVariable Long shoppingCartId);
+    @GetMapping("customer/{customerId}/shoppingcart")
+    ShoppingCart getCustomerShoppingCart(@PathVariable Long customerId);
 }

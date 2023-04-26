@@ -21,4 +21,6 @@ public class Item {
         this.product = product;
         this.quantity = quantity;
     }
+
+    // TODO: implement equals method
 }
